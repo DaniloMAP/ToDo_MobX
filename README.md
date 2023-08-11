@@ -33,7 +33,7 @@ Certifique-se de ter o Flutter e o Dart instalados em sua máquina.
 
 ```bash
 git clone https://github.com/seu-usuario/ToDo_MobX.git
-
+```
 
 2. Navegue até o diretório do projeto:
 
