@@ -19,9 +19,23 @@ Este é um aplicativo de lista de tarefas simples construído usando a bibliotec
 
 ## Dependências
 
-O aplicativo faz uso das seguintes dependências:
-- **flutter_mobx**: Biblioteca MobX para gerenciamento de estado reativo.
-- **provider**: Biblioteca para injeção de dependência e gerenciamento de estado.
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  mobx: ^1.1.1
+  flutter_mobx: ^1.1.0
+  provider: ^4.0.4
+
+Isso define as dependências necessárias para o seu projeto, incluindo o Flutter, os ícones do Cupertino, as bibliotecas MobX e Provider.
+
+cupertino_icons: Esta dependência fornece os ícones da biblioteca Cupertino, que são usados para ícones de estilo iOS no seu aplicativo Flutter.
+
+mobx: Esta é a biblioteca MobX, que oferece gerenciamento de estado reativo para o seu aplicativo. Ela permite que você crie observáveis, ações e calculados para controlar o estado de forma mais eficiente.
+
+flutter_mobx: Este pacote é uma integração específica para o Flutter da biblioteca MobX. Ele fornece widgets reativos que podem ser usados para criar interfaces do usuário reativas com base nos estados observados.
+
+provider: Essa biblioteca é usada para injeção de dependência e gerenciamento de estado. Ela oferece uma maneira fácil de fornecer e acessar instâncias de classe de forma global em seu aplicativo.
 
 ## Pré-requisitos
 
@@ -52,12 +66,6 @@ flutter pub get
 ```bash
 flutter run
 ```
-
-## Dependências
-
-O aplicativo faz uso das seguintes dependências:
-- `flutter_mobx`: Biblioteca MobX para gerenciamento de estado reativo.
-- `provider`: Biblioteca para injeção de dependência e gerenciamento de estado.
 
 ## Licença
 
