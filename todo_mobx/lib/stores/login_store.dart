@@ -5,14 +5,15 @@ part 'login_store.g.dart';
 class LoginStore = _LoginStore with _$LoginStore;
 
 abstract class _LoginStore with Store {
+
   @observable
-  String email = '';
+  String email = "";
 
   @action
   void setEmail(String value) => email = value;
 
   @observable
-  String password = '';
+  String password = "";
 
   @action
   void setPassword(String value) => password = value;
@@ -31,26 +32,32 @@ abstract class _LoginStore with Store {
 
   @computed
   bool get isEmailValid =>
-      RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$').hasMatch(email);
+      RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
+          .hasMatch(email);
 
   @computed
   bool get isPasswordValid => password.length >= 6;
 
-  Future<void> Function() get loginPressed {
-    if (isEmailValid && isPasswordValid && !loading) {
-      return () async {
-        await login();
-      };
-    }
-    return () async {}; // Retornar uma função vazia como valor padrão
-  }
+  @computed
+  Function get loginPressed =>
+      (isEmailValid && isPasswordValid && !loading) ? login : null;
 
   @action
   Future<void> login() async {
     loading = true;
+
     await Future.delayed(Duration(seconds: 2));
 
     loading = false;
     loggedIn = true;
+
+    email = "";
+    password = "";
   }
+
+  @action
+  void logout(){
+    loggedIn = false;
+  }
+
 }
