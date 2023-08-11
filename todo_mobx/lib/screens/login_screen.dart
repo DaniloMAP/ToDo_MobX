@@ -33,12 +33,16 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  CustomTextField(
-                    hint: 'E-mail',
-                    prefix: Icon(Icons.account_circle),
-                    textInputType: TextInputType.emailAddress,
-                    onChanged: loginStore.setEmail,
-                    enabled: true,
+                  Observer(
+                    builder: (_) {
+                      return CustomTextField(
+                        hint: 'E-mail',
+                        prefix: Icon(Icons.account_circle),
+                        textInputType: TextInputType.emailAddress,
+                        onChanged: loginStore.setEmail,
+                        enabled: !loginStore.loading,
+                      );
+                    },
                   ),
                   const SizedBox(
                     height: 16,
@@ -50,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         prefix: Icon(Icons.lock),
                         obscure: !loginStore.passwordVisible,
                         onChanged: loginStore.setPassword,
-                        enabled: true,
+                        enabled: !loginStore.loading,
                         suffix: CustomIconButton(
                           radius: 32,
                           iconData: loginStore.passwordVisible
@@ -78,15 +82,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             foregroundColor: Colors.white,
                             elevation: 0,
                           ),
-                          onPressed: loginStore.isFormatValid
-                              ? () {
-                                  Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                        builder: (context) => ListScreen()),
-                                  );
-                                }
-                              : null,
-                          child: Text('Login'),
+                          onPressed: loginStore.loginPressed,
+                          child: loginStore.loading
+                              ? CircularProgressIndicator(
+                                  valueColor:
+                                      AlwaysStoppedAnimation(Colors.white),
+                                )
+                              : Text('Login'),
                         ),
                       );
                     },
