@@ -26,6 +26,9 @@ abstract class _LoginStore with Store {
   @observable
   bool loading = false;
 
+  @observable
+  bool loggedIn = false;
+
   @computed
   bool get isEmailValid =>
       RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$').hasMatch(email);
@@ -48,5 +51,6 @@ abstract class _LoginStore with Store {
     await Future.delayed(Duration(seconds: 2));
 
     loading = false;
+    loggedIn = true;
   }
 }

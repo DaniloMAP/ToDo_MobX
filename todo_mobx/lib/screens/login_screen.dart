@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart'; // Importe o pacote flutter_mobx
+import 'package:mobx/mobx.dart';
 import 'package:todo_mobx/stores/login_store.dart';
 import 'package:todo_mobx/widgets/custom_icon_button.dart';
 import 'package:todo_mobx/widgets/custom_text_field.dart';
@@ -16,6 +17,22 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final LoginStore loginStore =
       LoginStore(); // Certifique-se de que loginStore seja final
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    autorun(
+      (_) {
+        if (loginStore.loggedIn)
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (_) => ListScreen(),
+            ),
+          );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
