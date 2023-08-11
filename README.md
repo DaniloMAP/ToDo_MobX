@@ -19,23 +19,19 @@ Este é um aplicativo de lista de tarefas simples construído usando a bibliotec
 
 ## Dependências
 
-dependencies:
-  flutter:
-    sdk: flutter
-  cupertino_icons: ^0.1.2
-  mobx: ^1.1.1
-  flutter_mobx: ^1.1.0
-  provider: ^4.0.4
+Este projeto Flutter utiliza as seguintes dependências para seu funcionamento:
 
-Isso define as dependências necessárias para o seu projeto, incluindo o Flutter, os ícones do Cupertino, as bibliotecas MobX e Provider.
+- **Flutter SDK**: A estrutura de desenvolvimento que permite criar aplicativos nativos para dispositivos móveis, web e desktop usando a linguagem de programação Dart.
 
-cupertino_icons: Esta dependência fornece os ícones da biblioteca Cupertino, que são usados para ícones de estilo iOS no seu aplicativo Flutter.
+- **cupertino_icons**: Fornece os ícones da biblioteca Cupertino, que são utilizados para ícones de estilo iOS no aplicativo Flutter.
 
-mobx: Esta é a biblioteca MobX, que oferece gerenciamento de estado reativo para o seu aplicativo. Ela permite que você crie observáveis, ações e calculados para controlar o estado de forma mais eficiente.
+- **mobx**: Biblioteca MobX, que oferece gerenciamento de estado reativo para o aplicativo. Permite a criação de observáveis, ações e cálculos para controlar o estado de forma eficiente.
 
-flutter_mobx: Este pacote é uma integração específica para o Flutter da biblioteca MobX. Ele fornece widgets reativos que podem ser usados para criar interfaces do usuário reativas com base nos estados observados.
+- **flutter_mobx**: Pacote de integração específico para o Flutter da biblioteca MobX. Ele disponibiliza widgets reativos que podem ser usados para criar interfaces de usuário reativas com base em estados observados.
 
-provider: Essa biblioteca é usada para injeção de dependência e gerenciamento de estado. Ela oferece uma maneira fácil de fornecer e acessar instâncias de classe de forma global em seu aplicativo.
+- **provider**: Biblioteca utilizada para injeção de dependência e gerenciamento de estado. Oferece uma maneira simples de fornecer e acessar instâncias de classe globalmente no aplicativo.
+
+Certifique-se de que essas dependências estejam corretamente configuradas no arquivo `pubspec.yaml` na raiz do seu projeto. Para mais detalhes sobre cada uma dessas dependências, consulte a documentação oficial de cada biblioteca.
 
 ## Pré-requisitos
 
