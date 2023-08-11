@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:todo_mobx/screens/login_screen.dart';
 
-
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +14,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.deepPurpleAccent,
         cardColor: Colors.deepPurpleAccent,
-        scaffoldBackgroundColor: Colors.deepPurpleAccent,
       ),
-      home: LoginScreen(),
+      home: const LoginScreen(),
     );
   }
 }
